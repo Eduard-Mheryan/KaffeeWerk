@@ -1,0 +1,41 @@
+<header>
+    <div class="inner_header">
+        <!-- Logo -->
+        <div class="logo_container">
+            <img src="logo/transparent-logo.png" alt="CafeNord-Logo">
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="nav_container">
+            <a class="nav-link">Startseite</a>
+            <a class="nav-link">Unsere Karte</a>
+            <a class="nav-link">Über uns</a>
+            <a class="nav-link">Galerie</a>
+            <a class="nav-link">Besuchen Sie uns</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="mobile-menu_container">
+            <button class="menu-btn" (click)="toggleMenu()">
+                <img src="icons/menu-black.svg" alt="Menu Icon">
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav_container" [class.open]="menuOpen">
+            <!-- Close Button -->
+            <div class="close_container">
+                <img src="icons/close-black.svg" alt="Close Icon" (click)="toggleMenu()">
+            </div>
+
+            <!-- Mobile Links -->
+            <div class="nav-mobile">
+                <a class="nav-link" (click)="toggleMenu()">Startseite</a>
+                <a class="nav-link" (click)="toggleMenu()">Unsere Karte</a>
+                <a class="nav-link" (click)="toggleMenu()">Über uns</a>
+                <a class="nav-link" (click)="toggleMenu()">Galerie</a>
+                <a class="nav-link" (click)="toggleMenu()">Besuchen Sie uns</a>
+            </div>
+        </div>
+    </div>
+</header>
