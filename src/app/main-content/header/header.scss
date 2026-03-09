@@ -53,42 +53,25 @@ header {
                 }
             }
         }
-        .mobile-menu_container,
-        .mobile-nav_container {
+        /* Desktop: Mobile Menü verstecken */
+        .mobile-menu_container {
             display: none;
         }
-        /* Hamburger ausblenden, wenn Menü offen */
-        .mobile-menu_container {
-            display: flex !important;
-            body.menu-open & {
-                display: none !important;
-            }
-            .menu-btn {
-                border: none;
-                background: transparent;
-                cursor: pointer;
-                img {
-                    height: 32px;
-                    transition: transform 0.2s ease;
-                }
-                &:hover img {
-                    content: url("/icons/menu-beige.svg");
-                    transform: scale(1.1);
-                }
-            }
+        .mobile-nav_container {
+            display: none;
         }
     }
 }
 
 
-/* Body Menü offen Scroll block */
+/* Wenn Menü offen → Scroll blockieren */
 
 body.menu-open {
     overflow: hidden;
 }
 
 
-/* MOBILE STYLES */
+/* MOBILE */
 
 @media (max-width: 1450px) {
     header {
@@ -97,10 +80,33 @@ body.menu-open {
             padding-left: 20px;
             padding-right: 20px;
             .nav_container {
-                display: none !important;
+                display: none;
             }
+            /* Hamburger Button */
+            .mobile-menu_container {
+                display: flex;
+                align-items: center;
+                z-index: 1002;
+                body.menu-open & {
+                    display: none;
+                }
+                .menu-btn {
+                    border: none;
+                    background: transparent;
+                    cursor: pointer;
+                    img {
+                        height: 32px;
+                        transition: transform 0.2s ease;
+                    }
+                    &:hover img {
+                        content: url("/icons/menu-beige.svg");
+                        transform: scale(1.1);
+                    }
+                }
+            }
+            /* Mobile Menü */
             .mobile-nav_container {
-                display: flex !important;
+                display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
@@ -112,7 +118,7 @@ body.menu-open {
                 background: rgba(247, 243, 238, 0.98);
                 backdrop-filter: blur(6px);
                 transition: left 0.35s ease;
-                z-index: 1001;
+                z-index: 1002;
                 &.open {
                     left: 0;
                 }
@@ -131,6 +137,7 @@ body.menu-open {
                     cursor: pointer;
                     img {
                         width: 32px;
+                        transition: transform 0.2s ease;
                     }
                     &:hover img {
                         content: url("/icons/close-beige.svg");
