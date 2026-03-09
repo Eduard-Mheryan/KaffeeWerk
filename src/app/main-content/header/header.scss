@@ -57,17 +57,39 @@ header {
         .mobile-nav_container {
             display: none;
         }
+        /* Hamburger ausblenden, wenn Menü offen */
+        .mobile-menu_container {
+            display: flex !important;
+            body.menu-open & {
+                display: none !important;
+            }
+            .menu-btn {
+                border: none;
+                background: transparent;
+                cursor: pointer;
+                img {
+                    height: 32px;
+                    transition: transform 0.2s ease;
+                }
+                &:hover img {
+                    content: url("/icons/menu-beige.svg");
+                    transform: scale(1.1);
+                }
+            }
+        }
     }
 }
 
-// Body Scroll sperren, wenn Mobile-Menü offen
+
+/* Body Menü offen Scroll block */
+
 body.menu-open {
     overflow: hidden;
-    height: 100%;
-    touch-action: none;
 }
 
-// Mobile Styles
+
+/* MOBILE STYLES */
+
 @media (max-width: 1450px) {
     header {
         height: 14vh;
@@ -77,57 +99,56 @@ body.menu-open {
             .nav_container {
                 display: none !important;
             }
-            .mobile-menu_container {
-                display: flex !important;
-                align-items: center;
-                position: relative;
-                z-index: 1000;
-                .menu-btn {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border: none;
-                    background: transparent;
-                    cursor: pointer;
-                    padding: 8px;
-                    img {
-                        height: 32px;
-                        width: auto;
-                        display: block;
-                        transition: transform 0.3s ease;
-                    }
-                }
-            }
             .mobile-nav_container {
                 display: flex !important;
                 flex-direction: column;
                 align-items: center;
-                position: absolute;
-                top: 18vh;
-                right: 0;
+                justify-content: center;
+                position: fixed;
+                top: 0;
+                left: -100%;
                 width: 100%;
-                overflow: hidden;
-                max-height: 0;
-                opacity: 0;
-                background-color: #F7F3EE;
-                transition: max-height 0.4s ease, opacity 0.4s ease;
-                z-index: 999;
+                height: 100vh;
+                background: rgba(247, 243, 238, 0.98);
+                backdrop-filter: blur(6px);
+                transition: left 0.35s ease;
+                z-index: 1001;
                 &.open {
-                    max-height: 500px;
-                    opacity: 1;
+                    left: 0;
+                }
+                .mobile-logo_container {
+                    position: absolute;
+                    top: 0;
+                    left: 35px;
+                    img {
+                        height: 100px;
+                    }
+                }
+                .close_container {
+                    position: absolute;
+                    top: 30px;
+                    right: 25px;
+                    cursor: pointer;
+                    img {
+                        width: 32px;
+                    }
+                    &:hover img {
+                        content: url("/icons/close-beige.svg");
+                        transform: scale(1.1);
+                    }
                 }
                 .nav-mobile {
                     display: flex;
                     flex-direction: column;
-                    gap: 20px;
-                    padding: 20px 0;
+                    gap: 32px;
+                    text-align: center;
                     .nav-link {
-                        font-size: 18px;
+                        font-size: 26px;
                         font-weight: 500;
                         text-transform: uppercase;
                         color: #333;
+                        font-family: "Montserrat", sans-serif;
                         cursor: pointer;
-                        transition: color 0.2s ease;
                         &:hover {
                             color: #C38444;
                         }
