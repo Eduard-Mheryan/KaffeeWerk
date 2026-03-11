@@ -17,4 +17,5 @@ export class Header {
       document.body.classList.remove('menu-open');
     }
   }
+
 }
