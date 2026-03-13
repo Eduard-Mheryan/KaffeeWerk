@@ -25,21 +25,6 @@ export class Home implements OnInit {
       image: '/images/cafe3.jpg',
       title: 'Hausgemachte Kuchen',
       text: 'Perfekt zu einem Cappuccino am Nachmittag.'
-    },
-    {
-      image: '/images/cafe1.jpg',
-      title: 'Willkommen im Café',
-      text: 'Genieße unseren frischen Kaffee und hausgemachte Spezialitäten.'
-    },
-    {
-      image: '/images/cafe2.jpg',
-      title: 'Frisch gerösteter Kaffee',
-      text: 'Unsere Bohnen werden täglich frisch gemahlen.'
-    },
-    {
-      image: '/images/cafe3.jpg',
-      title: 'Hausgemachte Kuchen',
-      text: 'Perfekt zu einem Cappuccino am Nachmittag.'
     }
   ];
 
