@@ -1,5 +1,36 @@
 <main>
-    <div class="main-headline_container">
-        <h1></h1>
+  <div class="main_container">
+
+    <div
+      class="img_container"
+      [style.background-image]="'url(' + slides[currentIndex].image + ')'">
     </div>
+
+    <div class="content_container">
+      <h1>{{ slides[currentIndex].title }}</h1>
+      <p>{{ slides[currentIndex].text }}</p>
+      <button>Mehr erfahren</button>
+    </div>
+
+    <div class="slider_nav">
+
+      <button class="arrow" (click)="prevSlide()">
+        <img src="icons/chevron_left.svg"> 
+      </button>
+
+      <div class="dots">
+        <span
+          *ngFor="let slide of slides; let i = index"
+          [class.active]="i === currentIndex"
+          (click)="goToSlide(i)">
+        </span>
+      </div>
+
+      <button class="arrow" (click)="nextSlide()">
+        <img src="icons/chevron_right.svg"> 
+      </button>
+
+    </div>
+
+  </div>
 </main>

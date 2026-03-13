@@ -1,9 +1,132 @@
 main {
-    background-image: url('/images/cafe-outside.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin: 0;
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+
+  .main_container {
+    display: flex;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    position: relative;
+  }
+
+  .img_container {
+    width: 60%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.8s ease;
+  }
+
+  .content_container {
+    width: 40%;
+    height: 100%;
+    background: #f2f2f2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    button {
+      width: 160px;
+      padding: 12px;
+      border: none;
+      background: black;
+      color: white;
+      cursor: pointer;
+    }
+  }
+
+  /* Navigation unten */
+  .slider_nav {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    height: 60px;
+    z-index: 10;
+  }
+
+  /* Pfeile */
+  .arrow {
+    position: absolute;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+
+    img {
+      width: 24px;
+      height: 24px;
+      transition: all 0.3s ease;
+      filter: invert(0); // normal schwarz
+    }
+
+    &:hover {
+      transform: scale(1.2);
+      background: white;
+
+      img {
+        filter: invert(1); // weiß
+      }
+    }
+  }
+
+  /* linker Pfeil */
+  .arrow:first-child {
+    left: 40px;
+  }
+
+  /* rechter Pfeil */
+  .arrow:last-child {
+    right: 40px;
+  }
+
+  /* Punkte */
+  .dots {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 15px;
+    display: flex;
+    gap: 12px;
+
+    span {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: black;
+      border: 2px solid grey;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .active {
+      background: white;
+      border: 2px solid grey;
+    }
+
+    span:hover {
+      background: white;
+    }
+  }
 }
