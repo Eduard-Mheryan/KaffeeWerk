@@ -30,35 +30,42 @@ export class Home implements OnInit, OnDestroy {
 
   currentIndex = 0;
   intervalId: any;
+  intervalTime = 3000; // Automatischer Wechsel alle 3 Sekunden
 
   ngOnInit(): void {
-    this.intervalId = setInterval(() => {
-      this.currentIndex++;
-      if (this.currentIndex >= this.slides.length) {
-        this.currentIndex = 0;
-      }
-    }, 3000);
+    this.startAutoSlide();
   }
 
   ngOnDestroy(): void {
     clearInterval(this.intervalId);
   }
 
+  // automatischer Slider
+  startAutoSlide() {
+    this.intervalId = setInterval(() => {
+      this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+    }, this.intervalTime);
+  }
+
+  // Reset-Intervall beim manuellen Klick
+  resetAutoSlide() {
+    clearInterval(this.intervalId);
+    this.startAutoSlide();
+  }
+
   nextSlide() {
-    this.currentIndex++;
-    if (this.currentIndex >= this.slides.length) {
-      this.currentIndex = 0;
-    }
+    this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+    this.resetAutoSlide();
   }
 
   prevSlide() {
-    this.currentIndex--;
-    if (this.currentIndex < 0) {
-      this.currentIndex = this.slides.length - 1;
-    }
+    this.currentIndex =
+      (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+    this.resetAutoSlide();
   }
 
   goToSlide(index: number) {
-    this.currentIndex = index;
+    this.currentIndex = index % this.slides.length;
+    this.resetAutoSlide();
   }
 }

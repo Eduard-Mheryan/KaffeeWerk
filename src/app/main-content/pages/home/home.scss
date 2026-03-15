@@ -23,12 +23,13 @@ main {
   .content_container {
     width: 40%;
     height: 100%;
-    background: #f2f2f2;
+    background: #F2E6D8;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 80px;
+    transform: translateY(-130px); // leichte Verschiebung nach oben
 
     h1 {
       font-size: 48px;
