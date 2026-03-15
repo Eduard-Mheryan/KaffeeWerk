@@ -67,39 +67,41 @@ main {
     width: 50px;
     height: 50px;
     border: none;
-    background: rgba(0, 0, 0, 0.6);
+    background: transparent;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 
     img {
       width: 24px;
       height: 24px;
       transition: all 0.3s ease;
-      filter: invert(0); // normal schwarz
     }
 
     &:hover {
-      transform: scale(1.2);
-      background: white;
-
-      img {
-        filter: invert(1); // weiß
-      }
+      transform: scale(1.5);
     }
   }
 
   /* linker Pfeil */
-  .arrow:first-child {
+  .arrow.left {
     left: 40px;
+
+    &:hover img {
+      content: url('/icons/chevron_left.svg');
+    }
   }
 
   /* rechter Pfeil */
-  .arrow:last-child {
+  .arrow.right {
     right: 40px;
+
+    &:hover img {
+      content: url('/icons/chevron_right.svg');
+    }
   }
 
   /* Punkte */
@@ -116,14 +118,14 @@ main {
       height: 12px;
       border-radius: 50%;
       background: black;
-      border: 2px solid grey;
+      border: 2px solid #808080;
       cursor: pointer;
       transition: all 0.3s ease;
     }
 
     .active {
       background: white;
-      border: 2px solid grey;
+      border-color: white;
     }
 
     span:hover {

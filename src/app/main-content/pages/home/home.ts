@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,41 +8,54 @@ import { CommonModule } from '@angular/common';
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class Home implements OnInit {
+export class Home implements OnInit, OnDestroy {
 
   slides = [
     {
-      image: '/images/cafe1.jpg',
+      image: '/images/cafe-outside.jpg',
       title: 'Willkommen im Café',
       text: 'Genieße unseren frischen Kaffee und hausgemachte Spezialitäten.'
     },
     {
-      image: '/images/cafe2.jpg',
+      image: '/images/arabic.jpg',
       title: 'Frisch gerösteter Kaffee',
       text: 'Unsere Bohnen werden täglich frisch gemahlen.'
     },
     {
-      image: '/images/cafe3.jpg',
+      image: '/images/crossaint.jpg',
       title: 'Hausgemachte Kuchen',
       text: 'Perfekt zu einem Cappuccino am Nachmittag.'
     }
   ];
 
   currentIndex = 0;
+  intervalId: any;
 
-  ngOnInit() {
-    setInterval(() => {
-      this.nextSlide();
+  ngOnInit(): void {
+    this.intervalId = setInterval(() => {
+      this.currentIndex++;
+      if (this.currentIndex >= this.slides.length) {
+        this.currentIndex = 0;
+      }
     }, 3000);
   }
 
+  ngOnDestroy(): void {
+    clearInterval(this.intervalId);
+  }
+
   nextSlide() {
-    this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+    this.currentIndex++;
+    if (this.currentIndex >= this.slides.length) {
+      this.currentIndex = 0;
+    }
   }
 
   prevSlide() {
-    this.currentIndex =
-      (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+    this.currentIndex--;
+    if (this.currentIndex < 0) {
+      this.currentIndex = this.slides.length - 1;
+    }
   }
 
   goToSlide(index: number) {
