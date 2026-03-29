@@ -1,39 +1,52 @@
 <main>
-  <div class="main_container">
 
-    <!-- Bildbereich -->
-    <div class="img_container" [style.background-image]="'url(' + slides[currentIndex].image + ')'">
-    </div>
+  <!-- HERO SLIDER -->
+  <section class="hero">
 
-    <!-- Content-Bereich -->
-    <div class="content_container">
-      <h1>{{ slides[currentIndex].title }}</h1>
-      <p>{{ slides[currentIndex].text }}</p>
-      <button>Mehr erfahren</button>
-    </div>
+    <div class="main_container">
 
-    <!-- Slider Navigation -->
-    <div class="slider_nav">
-
-      <!-- Linker Pfeil -->
-      <button class="arrow left" (click)="prevSlide()">
-        <img src="/icons/chevron_left_grey.svg" alt="Vorheriges Bild">
-      </button>
-
-      <!-- Punkte -->
-      <div class="dots">
-        <span *ngFor="let slide of slides; let i = index" 
-              [class.active]="i === currentIndex" 
-              (click)="goToSlide(i)">
-        </span>
+      <!-- Bild -->
+      <div class="img_container"
+        [style.background-image]="'url(' + slides[currentIndex].image + ')'">
       </div>
 
-      <!-- Rechter Pfeil -->
-      <button class="arrow right" (click)="nextSlide()">
-        <img src="/icons/chevron_right_grey.svg" alt="Nächstes Bild">
-      </button>
+      <!-- Content -->
+      <div class="content_container">
+        <h1>{{ slides[currentIndex].title }}</h1>
+        <p>{{ slides[currentIndex].text }}</p>
+        <button>Mehr erfahren</button>
+      </div>
+
+      <!-- Navigation -->
+      <div class="slider_nav">
+
+        <button class="arrow left" (click)="prevSlide()">
+          <img src="/icons/chevron_left_grey.svg" alt="">
+        </button>
+
+        <div class="dots">
+          <span *ngFor="let slide of slides; let i = index"
+                [class.active]="i === currentIndex"
+                (click)="goToSlide(i)">
+          </span>
+        </div>
+
+        <button class="arrow right" (click)="nextSlide()">
+          <img src="/icons/chevron_right_grey.svg" alt="">
+        </button>
+
+      </div>
 
     </div>
 
-  </div>
+  </section>
+
+  <!-- CONTENT UNTER DEM SLIDER -->
+  <section class="below">
+    <div class="below_container">
+      <h2>Willkommen</h2>
+      <p>Hier kommt dein weiterer Website Content.</p>
+    </div>
+  </section>
+
 </main>

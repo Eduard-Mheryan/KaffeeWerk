@@ -27,6 +27,9 @@ header {
             display: flex;
             align-items: center;
             gap: 40px;
+            a {
+                text-decoration: none;
+            }
             .nav-link {
                 position: relative;
                 cursor: pointer;

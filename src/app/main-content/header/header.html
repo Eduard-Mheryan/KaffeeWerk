@@ -1,39 +1,51 @@
-<header>
+<header >
     <div class="inner_header">
+
+        <!-- Logo -->
         <div class="logo_container">
-            <img src="logo/transparent-logo.png" alt="CafeNord-Logo">
+            <a href="/">
+                <img src="logo/transparent-logo.png" alt="CafeNord-Logo">
+            </a>
         </div>
 
-        <div class="nav_container">
-            <a class="nav-link">Startseite</a>
-            <a class="nav-link">Unsere Karte</a>
-            <a class="nav-link">Über uns</a>
-            <a class="nav-link">Galerie</a>
-            <a class="nav-link">Besuchen Sie uns</a>
-        </div>
+        <!-- Desktop Navigation -->
+        <nav class="nav_container">
+            <a class="nav-link" href="#home">Startseite</a>
+            <a class="nav-link" href="#menu">Unsere Karte</a>
+            <a class="nav-link" href="#about">Über uns</a>
+            <a class="nav-link" href="#gallery">Galerie</a>
+            <a class="nav-link" href="#contact">Besuchen Sie uns</a>
+        </nav>
 
+        <!-- Mobile Menü Button -->
         <div class="mobile-menu_container">
             <button class="menu-btn" (click)="toggleMenu()">
                 <img src="icons/menu-black.svg" alt="Menu Icon">
             </button>
         </div>
 
+        <!-- Mobile Menü -->
         <div class="mobile-nav_container" [class.open]="menuOpen">
+
+            <!-- Logo -->
             <div class="mobile-logo_container">
                 <img src="logo/transparent-logo.png" alt="CafeNord-Logo">
             </div>
 
+            <!-- Close Button -->
             <div class="close_container">
                 <img src="icons/close-black.svg" alt="Close Icon" (click)="toggleMenu()">
             </div>
 
+            <!-- Navigation -->
             <div class="nav-mobile">
-                <a class="nav-link" (click)="toggleMenu()">Startseite</a>
-                <a class="nav-link" (click)="toggleMenu()">Unsere Karte</a>
-                <a class="nav-link" (click)="toggleMenu()">Über uns</a>
-                <a class="nav-link" (click)="toggleMenu()">Galerie</a>
-                <a class="nav-link" (click)="toggleMenu()">Besuchen Sie uns</a>
+                <a class="nav-link" href="#home" (click)="toggleMenu()">Startseite</a>
+                <a class="nav-link" href="#menu" (click)="toggleMenu()">Unsere Karte</a>
+                <a class="nav-link" href="#about" (click)="toggleMenu()">Über uns</a>
+                <a class="nav-link" href="#gallery" (click)="toggleMenu()">Galerie</a>
+                <a class="nav-link" href="#contact" (click)="toggleMenu()">Besuchen Sie uns</a>
             </div>
+
         </div>
     </div>
 </header>

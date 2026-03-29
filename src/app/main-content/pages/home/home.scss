@@ -1,136 +1,159 @@
-main {
+html, body {
   margin: 0;
+  padding: 0;
   width: 100%;
+  min-height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+main {
+  width: 100%;
+}
+
+/* HERO SECTION */
+.hero {
   height: 100vh;
+  width: 100%;
   position: relative;
+}
 
-  .main_container {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    position: relative;
+/* SLIDER WRAPPER */
+.main_container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* LEFT IMAGE */
+.img_container {
+  width: 60%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.8s ease;
+}
+
+/* RIGHT CONTENT */
+.content_container {
+  width: 40%;
+  height: 80%;
+  background: #F2E6D8;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px;
+
+  h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
   }
 
-  .img_container {
-    width: 60%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: background-image 0.8s ease;
+  p {
+    font-size: 18px;
+    margin-bottom: 30px;
   }
 
-  .content_container {
-    width: 40%;
-    height: 100%;
-    background: #F2E6D8;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 80px;
-    transform: translateY(-130px); // leichte Verschiebung nach oben
-
-    h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-
-    button {
-      width: 160px;
-      padding: 12px;
-      border: none;
-      background: black;
-      color: white;
-      cursor: pointer;
-    }
-  }
-
-  /* Navigation unten */
-  .slider_nav {
-    background-color: black;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 60px;
-    z-index: 10;
-  }
-
-  /* Pfeile */
-  .arrow {
-    position: absolute;
-    bottom: 0;
-    width: 50px;
-    height: 50px;
+  button {
+    width: 160px;
+    padding: 12px;
     border: none;
-    background: transparent;
+    background: black;
+    color: white;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  }
+}
+
+/* NAV BAR */
+.slider_nav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: black;
+}
+
+/* ARROWS */
+.arrow {
+  position: absolute;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+
+  img {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    transform: scale(1.5);
+  }
+}
+
+/* linker Pfeil (BLEIBT GENAU SO WIE DU WILLST) */
+.arrow.left {
+  left: 40px;
+
+  &:hover img {
+    content: url('/icons/chevron_left.svg');
+  }
+}
+
+/* rechter Pfeil (BLEIBT GENAU SO WIE DU WILLST) */
+.arrow.right {
+  right: 40px;
+
+  &:hover img {
+    content: url('/icons/chevron_right.svg');
+  }
+}
+
+/* DOTS */
+.dots {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 15px;
+  display: flex;
+  gap: 12px;
+
+  span {
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    transition: transform 0.3s ease;
-
-    img {
-      width: 24px;
-      height: 24px;
-      transition: all 0.3s ease;
-    }
-
-    &:hover {
-      transform: scale(1.5);
-    }
+    background: black;
+    border: 2px solid #808080;
+    cursor: pointer;
+    transition: 0.3s;
   }
 
-  /* linker Pfeil */
-  .arrow.left {
-    left: 40px;
-
-    &:hover img {
-      content: url('/icons/chevron_left.svg');
-    }
+  .active { 
+    background: white;
+    border-color: white;
   }
 
-  /* rechter Pfeil */
-  .arrow.right {
-    right: 40px;
-
-    &:hover img {
-      content: url('/icons/chevron_right.svg');
-    }
+  span:hover {
+    background: white;
   }
+}
 
-  /* Punkte */
-  .dots {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 15px;
-    display: flex;
-    gap: 12px;
-
-    span {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: black;
-      border: 2px solid #808080;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .active {
-      background: white;
-      border-color: white;
-    }
-
-    span:hover {
-      background: white;
-    }
-  }
+/* BELOW CONTENT */
+.below {
+  width: 100%;
+  padding: 100px 80px;
 }
